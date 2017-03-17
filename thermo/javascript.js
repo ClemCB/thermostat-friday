@@ -38,6 +38,6 @@ $( document ).ready(function() {
 
   $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
 
-  
+
 
 });

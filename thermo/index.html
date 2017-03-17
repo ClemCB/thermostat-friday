@@ -23,6 +23,7 @@
 <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
 
 <button type="button" id="api">API request</button><br>
+<p id="api-text"></p>
 
 <script type="text/javascript">
 ( function() {
@@ -36,25 +37,25 @@ function makeRequest(url) {
     alert("Giving up:( Cannot create an XMLHTTP instance");
     return false;
   }
-  httpRequest.onreadystatechange = alertContents;
+  httpRequest.onreadystatechange = showContents;
   httpRequest.open('GET', url);
   httpRequest.send();
 }
 
-  function alertContents() {
+  function showContents() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
+        // alert(httpRequest.responseText);
         var data = JSON.parse(httpRequest.responseText);
-        console.log(data);
-        // var weather = {};
-        //  weather.wind = data.wind.wind.speed;
-        //  weather.direction = data.wind.deg;
-        //  weather.loc = data.name;
-        //  weather.temp = data.main.temp;
-         console.log(data.city);
+        var weather = {};
+        weather.temp = parseInt(data.list[0].main.temp - 273.15);
+        weather.windSpeed = data.list[0].wind.speed;
+        weather.cloudCoverage = data.list[0].clouds.all;
+        weather.city = data.city.name;
+        console.log(weather);
+        $ ("#api-text").text(weather.city, weather.temp, weather.windSpeed, weather.cloudCoverage);
 
-      } else {
+        } else {
         alert('There was a problem with the request.');
       }
     }

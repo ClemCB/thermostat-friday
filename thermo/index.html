@@ -1,67 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Thermostat</title>
-  <script src="src/thermostat.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Thermostat</title>
+    <script src="src/thermostat.js"></script>
+  </head>
 
-<body>
+  <body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="thermostatJQuery.js"></script>
+    <script src="weatherAPI.js"></script>
 
-<h1>Current Temperature: <span id="current-temp"></span></h1>
-<button type="button" id="change-temp-up">Up</button>
-<button type="button" id="change-temp-down">Down</button>
-<button type="button" id="change-temp-reset">Reset Temperature</button><br>
+    <h1>Current Temperature: <span id="current-temp"></span></h1>
+    <button type="button" id="change-temp-up">Up</button>
+    <button type="button" id="change-temp-down">Down</button>
+    <button type="button" id="change-temp-reset">Reset Temperature</button><br>
 
-<h2>Power Saving Mode is: <span id="current-psm"></span></h2><br>
-<button type="button" id="change-psm-on">Turn PSM On</button>
-<button type="button" id="change-psm-off">Turn PSM Off</button><br>
+    <h2>Power Saving Mode is: <span id="current-psm"></span></h2><br>
+    <button type="button" id="change-psm-on">Turn PSM On</button>
+    <button type="button" id="change-psm-off">Turn PSM Off</button><br>
 
-<h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
+    <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
 
-<button type="button" id="api">API request</button><br>
-<p id="api-text"></p>
+    <div class='forecast'>
+      <h1><span id="api-city"></h1>
+      <h2>Temperature: <span id="api-temp"></span> C</h2>
+      <h2>Wind: <span id="api-wind"></span> mph</h2>
+      <h2>Clouds: <span id="api-cloud"></span>% coverage </h2>
+    </div>
 
-<script type="text/javascript">
-( function() {
-  var httpRequest;
-  document.getElementById("api").onclick = function () { makeRequest('http://api.openweathermap.org/data/2.5/forecast?id=2643743&APPID=6539dcf40823b50178b058dab2bd75e3'); }
-
-function makeRequest(url) {
-  httpRequest = new XMLHttpRequest();
-
-  if (!httpRequest) {
-    alert("Giving up:( Cannot create an XMLHTTP instance");
-    return false;
-  }
-  httpRequest.onreadystatechange = showContents;
-  httpRequest.open('GET', url);
-  httpRequest.send();
-}
-
-  function showContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        // alert(httpRequest.responseText);
-        var data = JSON.parse(httpRequest.responseText);
-        var weather = {};
-        weather.temp = parseInt(data.list[0].main.temp - 273.15);
-        weather.windSpeed = data.list[0].wind.speed;
-        weather.cloudCoverage = data.list[0].clouds.all;
-        weather.city = data.city.name;
-        console.log(weather);
-        $ ("#api-text").text(weather.city, weather.temp, weather.windSpeed, weather.cloudCoverage);
-
-        } else {
-        alert('There was a problem with the request.');
-      }
-    }
-  }
-})();
-</script>
-
-</body>
+  </body>
 </html>

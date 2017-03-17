@@ -8,7 +8,7 @@
 
 <body>
 
-<script src="jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="javascript.js"></script>
 
 <h1>Current Temperature: <span id="current-temp"></span></h1>
@@ -22,6 +22,36 @@
 
 <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
 
+<button type="button" id="api">API request</button><br>
+
+<script type="text/javascript">
+( function() {
+  var httpRequest;
+  document.getElementById("api").onclick = function () { makeRequest('http://api.openweathermap.org/data/2.5/weather?q=London/'); }
+
+function makeRequest(url) {
+  httpRequest = new XMLHttpRequest();
+
+  if (!httpRequest) {
+    alert("Giving up:( Cannot create an XMLHTTP instance");
+    return false;
+  }
+  httpRequest.onreadystatechange = alertContents;
+  httpRequest.open('GET', url);
+  http.send();
+}
+
+  function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+})();
+</script>
 
 </body>
 </html>

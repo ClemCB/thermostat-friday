@@ -6,10 +6,6 @@ $( document ).ready(function() {
 
   $ ("#change-temp-up").click(function() {
     thermo.increaseTemperature();
-    // catch (e) {
-    //   thermo.temperature = thermo.MAX_TEMPERATURE;
-    //   console.log(e);
-    // }
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
@@ -41,5 +37,7 @@ $( document ).ready(function() {
   });
 
   $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
+
+  
 
 });

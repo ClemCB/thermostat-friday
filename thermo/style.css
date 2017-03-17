@@ -1,9 +1,11 @@
 body {
-  font-family: avenir;
   background-color: pink;
   width: 800px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Fredoka One';
+  letter-spacing: 2px;
+  color: rgba(48, 64, 84, 1.0);
 }
 
 div {
@@ -12,12 +14,29 @@ div {
 }
 
 button {
+  font-family: 'Fredoka One';
+  color: inherit;
   font-size: 20px;
   border-style: none;
   background-color: white;
   border-radius: 25px;
   margin: 10px;
   padding: 10px;
+  font-style: bold;
+}
+
+.plus-minus {
+  font-size: 100px;
+  width: 60px;
+  padding: auto;
+  margin-left: 70px;
+  border: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+button:focus {
+  outline: 0;
 }
 
 img {
@@ -42,6 +61,8 @@ body {
   flex-wrap: wrap;
   font-weight: 300
 }
+
+
 #container {
   width:370px;
   height:370px;

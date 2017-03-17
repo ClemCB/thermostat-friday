@@ -5,6 +5,7 @@
     <title>Thermostat</title>
     <script src="src/thermostat.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Chewy|Fascinate+Inline|Fredoka+One" rel="stylesheet">
   </head>
 
   <body>
@@ -20,19 +21,19 @@
       <script src="weatherAPI.js"></script>
 
       <h1 id="current-temp"></h1>
-      <button type="button" id="change-temp-up">+</button>
-      <button type="button" id="change-temp-down">-</button>
-      <button type="button" id="change-temp-reset">Reset</button><br>
+      <button class="plus-minus" type="button" id="change-temp-up">+</button>
+      <button class="plus-minus" type="button" id="change-temp-down">-</button>
+      <br>
 
-      <h2>Power Saving Mode is: <span id="current-psm"></span></h2><br>
       <button type="button" id="change-psm-on">PSM On</button>
-      <button type="button" id="change-psm-off">PSM Off</button><br>
+      <button type="button" id="change-psm-off">PSM Off</button>
+      <button type="button" id="change-temp-reset">Reset</button><br>
 
     </div>
 
     <div class='forecast'>
       <img src="https://image.flaticon.com/icons/svg/169/169329.svg">
-      <h1><span id="api-city"></h1>
+      <h1>Weather for <span id="api-city"></h1>
       <h2>Temperature: <span id="api-temp"></span> C</h2>
       <h2>Wind: <span id="api-wind"></span> mph</h2>
       <h2>Clouds: <span id="api-cloud"></span>% coverage </h2>

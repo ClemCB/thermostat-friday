@@ -20,6 +20,10 @@ button {
   padding: 10px;
 }
 
+img {
+  margin-bottom: 70px;
+}
+
 *,
 *::after,
 *::before {
@@ -31,15 +35,11 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background: /*radial-gradient(circle at 50% 50%, #fff 0%, #7EC0EE 200%)*/
-    linear-gradient(to top,
-      #6C7A88,#B3C7DD);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  font-family: 'Roboto';
   font-weight: 300
 }
 #container {
@@ -165,3 +165,9 @@ body {
     box-shadow: -4px 2px 10px rgba(0,0,0,.4);
   }
 }*/
+
+#current-temp {
+  margin-left: 165px;
+  margin-top: -205px;
+  margin-bottom: 205px;
+}

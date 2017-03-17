@@ -19,7 +19,7 @@
       <script src="thermostatJQuery.js"></script>
       <script src="weatherAPI.js"></script>
 
-      <h1>Current Temperature: <span id="current-temp"></span></h1>
+      <h1 id="current-temp"></h1>
       <button type="button" id="change-temp-up">+</button>
       <button type="button" id="change-temp-down">-</button>
       <button type="button" id="change-temp-reset">Reset</button><br>
@@ -28,10 +28,10 @@
       <button type="button" id="change-psm-on">PSM On</button>
       <button type="button" id="change-psm-off">PSM Off</button><br>
 
-      <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
     </div>
 
     <div class='forecast'>
+      <img src="https://image.flaticon.com/icons/svg/169/169329.svg">
       <h1><span id="api-city"></h1>
       <h2>Temperature: <span id="api-temp"></span> C</h2>
       <h2>Wind: <span id="api-wind"></span> mph</h2>

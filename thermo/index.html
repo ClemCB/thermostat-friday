@@ -4,24 +4,32 @@
     <meta charset="utf-8">
     <title>Thermostat</title>
     <script src="src/thermostat.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+    <div class='thermometer'>
+      <div id="container">
+        <div id="inner">
+          <div id="notches"></div>
+        </div>
+      </div>
+      <div id="print"></div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="thermostatJQuery.js"></script>
+      <script src="weatherAPI.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="thermostatJQuery.js"></script>
-    <script src="weatherAPI.js"></script>
+      <h1>Current Temperature: <span id="current-temp"></span></h1>
+      <button type="button" id="change-temp-up">+</button>
+      <button type="button" id="change-temp-down">-</button>
+      <button type="button" id="change-temp-reset">Reset</button><br>
 
-    <h1>Current Temperature: <span id="current-temp"></span></h1>
-    <button type="button" id="change-temp-up">Up</button>
-    <button type="button" id="change-temp-down">Down</button>
-    <button type="button" id="change-temp-reset">Reset Temperature</button><br>
+      <h2>Power Saving Mode is: <span id="current-psm"></span></h2><br>
+      <button type="button" id="change-psm-on">PSM On</button>
+      <button type="button" id="change-psm-off">PSM Off</button><br>
 
-    <h2>Power Saving Mode is: <span id="current-psm"></span></h2><br>
-    <button type="button" id="change-psm-on">Turn PSM On</button>
-    <button type="button" id="change-psm-off">Turn PSM Off</button><br>
-
-    <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
+      <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
+    </div>
 
     <div class='forecast'>
       <h1><span id="api-city"></h1>
